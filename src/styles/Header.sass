@@ -1,0 +1,56 @@
+@import 'vars'
+
+.header 
+    height: 4rem
+    background-color: $primary
+    @extend %flex
+
+    &__logo
+        background-color: $secondary
+        border-radius: $b_radius
+        padding: 0.3rem 0.6rem
+
+    &__title
+        font:
+            family: Impact,'Arial Narrow Bold'
+            size: 2rem
+    
+    &_margin
+        margin-right: 10%
+
+
+.search
+    background-color: white
+    border-radius: $b_radius
+    @extend %flex
+
+    &__flyout_menu
+        border-right: 1px solid gray
+        outline: none
+        font: 
+            family: inherit
+            weight: bold
+        height: 100%
+        border-radius: $b_radius 0px 0px $b_radius
+
+        &:hover
+            background-color: $neutral_bg
+
+    &__text
+        border: none
+        outline: none
+        width: 25rem
+
+    &__action
+        @extend %flex
+        border-radius: $b_radius
+        opacity: 0.6
+
+        &:hover
+            opacity: 1
+        
+        img
+            width: 1.2rem
+    
+    &_padding
+        padding: 0.4rem 0.8rem
