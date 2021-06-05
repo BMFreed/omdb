@@ -1,31 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import search_icon from './img/search.png'
 
-import FlyoutMenu from './FlyoutMenu/FlyoutMenu'
-
 const Header = (props) => {
+  const [typedValue, setTypedValue] = useState('');
+  const [openFlyout, setOpenFlyout] = useState(false);
 
   const handleInput = (event) => {
     event.preventDefault();
     const value = event.target.value;
-    props.setTypedValue(value);
+    setTypedValue(value);
   }
 
   const handleClick = () => {
-    props.setSearchValue(props.typedValue);
+    props.setSearchValue(typedValue);
   }
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-    props.setSearchValue(props.typedValue);
+    props.setSearchValue(typedValue);
     }
   }
 
   const handleFlyout = () => {
-    props.setOpenFlyout(!props.openFlyout);
+    setOpenFlyout(!openFlyout);
   }
 
-  console.log(props.openFlyout);
+  const HandleFilter = (event) => {
+    props.setType(event.target.innerText);
+}
+
+const HandleFilterAll = (event) => {
+  props.setType("");
+}
 
   return (
       <header className="header">
@@ -36,10 +42,15 @@ const Header = (props) => {
           <button 
           className="search__flyout_menu button search_padding"
           onClick={handleFlyout}>All</button>
-          {!props.openFlyout ? <FlyoutMenu/>: null}
+          <ul className="flyout_menu" style={{ display: openFlyout ? "block" : "none" }}>
+                <li className="flyout_menu__item" value="" onClick={HandleFilterAll}>all</li>
+                <li className="flyout_menu__item" value="movie" onClick={HandleFilter}>movie</li>
+                <li className="flyout_menu__item" value="series" onClick={HandleFilter}>series</li>
+                <li className="flyout_menu__item" value="game" onClick={HandleFilter}>game</li>
+            </ul>
           <input
             type="search" 
-            placeholder="Search" 
+            placeholder="search, example: Spider-Man" 
             value={props.value} 
             onChange={handleInput}
             onKeyDown={handleKeyDown}

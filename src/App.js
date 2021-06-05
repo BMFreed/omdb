@@ -12,12 +12,11 @@ import './styles/MovieList.sass';
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [typedValue, setTypedValue] = useState('');
   const [searchValue, setSearchValue] = useState('Spider-man');
-  const [openFlyout, setOpenFlyout] = useState(false);
+  const [type, setType] = useState('')
 
   const getMovieRequest = async (searchValue) => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=68fec587`;
+    const url = `http://www.omdbapi.com/?s=${searchValue}&type=${type}&apikey=68fec587`;
     const response = await fetch(url);
     const responseJson = await response.json();
 
@@ -27,15 +26,13 @@ function App() {
   }
 
   useEffect (()=> {
-      getMovieRequest(searchValue);
-  }, [searchValue]);
+      getMovieRequest(searchValue, type);
+  }, [searchValue, type]);
 
   return (
     <div className="wrapper">
-      <Header 
-      typedValue={typedValue} setTypedValue={setTypedValue}
-      searchValue={searchValue} setSearchValue={setSearchValue}
-      setOpenFlyout={setOpenFlyout} openFlyout={openFlyout}/>
+      <Header searchValue={searchValue} setSearchValue={setSearchValue}
+      type={type} setType={setType}/>
       <MovieList movies={movies}/>
       <footer>
         <p>Some fake copyrights</p>
