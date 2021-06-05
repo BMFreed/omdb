@@ -1,6 +1,8 @@
 import React from 'react';
 import search_icon from './img/search.png'
 
+import FlyoutMenu from './FlyoutMenu/FlyoutMenu'
+
 const Header = (props) => {
 
   const handleInput = (event) => {
@@ -19,16 +21,25 @@ const Header = (props) => {
     }
   }
 
+  const handleFlyout = () => {
+    props.setOpenFlyout(!props.openFlyout);
+  }
+
+  console.log(props.openFlyout);
+
   return (
       <header className="header">
         <div className="header__logo header_margin">
           <span className="header__title">OMDb</span>
         </div>
         <div className="search header_margin">
-          <button className="search__flyout_menu button search_padding">Всё</button>
+          <button 
+          className="search__flyout_menu button search_padding"
+          onClick={handleFlyout}>All</button>
+          {!props.openFlyout ? <FlyoutMenu/>: null}
           <input
             type="search" 
-            placeholder="Искать" 
+            placeholder="Search" 
             value={props.value} 
             onChange={handleInput}
             onKeyDown={handleKeyDown}

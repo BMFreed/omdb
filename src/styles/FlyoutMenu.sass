@@ -1,0 +1,29 @@
+@import 'vars'
+
+.flyout_menu
+    list-style-type: none
+    padding: 0
+    position: absolute
+    top: 1rem
+    left: 0
+    width: 30%
+    background-color: lighten($primary, 6%)
+    border: 0 solid lighten($primary, 6%)
+    border-radius: $b_radius
+    cursor: pointer
+    transition: $anim
+
+    &__item
+        font: 
+            family: inherit
+            weight: bold
+        text-transform: capitalize
+        color: white
+        padding: 1rem 2rem
+        margin: 
+            top: 0.5rem
+            bottom: 0.5rem
+        border: 0
+
+        &:hover
+            background-color: lighten($primary, 2%)
