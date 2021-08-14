@@ -1,17 +1,25 @@
-@import 'vars'
-
-.flyout_menu
+.flyout-menu
     list-style-type: none
     padding: 0
+    margin: 0
     position: absolute
-    top: 1rem
+    top: 32px
     left: 0
-    width: 30%
+    width: 150px
     background-color: lighten($primary, 6%)
     border: 0 solid lighten($primary, 6%)
     border-radius: $b_radius
     cursor: pointer
-    transition: $anim
+    z-index: 1
+
+    &::before
+        position: absolute
+        right: -20%
+        display: block
+        content: " "
+        width: 140%
+        height: 110%
+        z-index: -1  
 
     &__item
         font: 

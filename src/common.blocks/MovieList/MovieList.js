@@ -1,5 +1,3 @@
-import React from 'react';
-
 const MovieList = (props) => {
     return (
         <section className="movielist">
@@ -8,12 +6,10 @@ const MovieList = (props) => {
                     <div className="movie" key={index}>
                         <div className="movie__wrapper">
                             <div className="movie__poster">
-                                <img 
-                                    className="movie__img"
-                                    src={movie.Poster} 
-                                    alt={movie.Title} />
+                                <img className="movie__img" src={movie.Poster} alt={movie.Title} />
                             </div>
                             <div className="movie__info">
+                                {props.Test}
                                 <span className="movie__title">{movie.Title}</span>
                                 <div className="movie__details">
                                     <span className="movie__year">{movie.Year}</span>
@@ -25,7 +21,7 @@ const MovieList = (props) => {
                 ))}
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default MovieList;

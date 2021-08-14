@@ -1,4 +1,15 @@
-@import 'vars'
+$primary: #24292e
+$secondary: #2ea44f
+$tertiary: #79b8ff
+$neutral_bg: #f4f4f4
+$bright_bg: #ffffff
+$anim: all 0.1s ease-out
+$b_radius: 5px
+
+%flex
+    display: flex
+    justify-content: center
+    align-items: center
 
 html, body, .wrapper
     min-height: 100vh
@@ -27,3 +38,7 @@ footer
         top: 1rem
         bottom: 1rem
     width: 100%
+
+@import 'common.blocks/Header/Header'
+@import 'common.blocks/MovieList/MovieList'
+@import 'common.blocks/Header/FlyoutMenu/FlyoutMenu'

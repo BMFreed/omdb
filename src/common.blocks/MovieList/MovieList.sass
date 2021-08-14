@@ -1,5 +1,3 @@
-@import 'vars'
-
 .movielist
     @extend %flex
     min-height: calc(100vh - 180px)
@@ -7,8 +5,9 @@
     &__wrapper
         @extend %flex
         flex-wrap: wrap
-        width: 90%
-        margin-bottom: 5rem
+        width: 80%
+        padding-bottom: 5rem
+        background-color: $bright_bg
 
 .movie
     @extend %flex
@@ -30,7 +29,7 @@
         transition: $anim
 
         &:hover
-            transform: scale(1.1)
+            transform: scale(1.05)
 
     &__poster
         border-radius: $b_radius
