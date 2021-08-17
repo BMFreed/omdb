@@ -20,7 +20,7 @@ function App() {
             const url = `http://www.omdbapi.com/?s=${searchValue}&type=${type}&apikey=68fec587`;
             const response = await fetch(url);
             const responseJson = await response.json();
-            if (responseJson.Response === "True") {
+            if (responseJson.Response === "True" || responseJson.Error) {
                 setResolved(true);
             }
             else {
@@ -31,6 +31,7 @@ function App() {
             } else {
                 setMovies([]);
             }
+            console.log(responseJson)
         };
         getMovieRequest(searchValue, type);
     }, [searchValue, type]);
