@@ -1,9 +1,10 @@
 const MovieList = (props) => {
-    console.log(props.movies);
     return (
         <section className="movielist section">
             <div className="movielist__wrapper">
-                {props.movies.length !== 0 ? (
+                {!props.resolved ? (
+                    <p className="movielist__message">Loading...</p>
+                ) : props.movies.length !== 0 ? (
                     props.movies.map((movie, index) => (
                         <div className="movie" key={index}>
                             <div className="movie__wrapper">
@@ -26,7 +27,9 @@ const MovieList = (props) => {
                         </div>
                     ))
                 ) : (
-                    <p className="movielist__error">Sorry, we couldn't find anything based on your request!</p>
+                    <p className="movielist__message">
+                        Sorry, we couldn't find anything based on your request!
+                    </p>
                 )}
             </div>
         </section>
