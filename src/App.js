@@ -23,6 +23,9 @@ function App() {
             if (responseJson.Search) {
                 setMovies(responseJson.Search);
             }
+            else {
+                setMovies([])
+            }
         };
         getMovieRequest(searchValue, type);
     }, [searchValue, type]);
@@ -41,7 +44,7 @@ function App() {
                         <Home />
                     </Route>
                     <Route path="/search">
-                        <MovieList movies={movies} />
+                            <MovieList movies={movies} />
                     </Route>
                 </Switch>
                 <Footer />

@@ -1,12 +1,17 @@
 .movielist
     @extend %flex
-
+    align-items: stretch
     &__wrapper
         @extend %flex
         flex-wrap: wrap
         width: 80%
         padding-bottom: 5rem
         background-color: $bright_bg
+
+    &__error
+        font-size: 2.5rem
+        align-self: flex-start
+        margin-top: 10rem
 
 .movie
     @extend %flex
