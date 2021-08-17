@@ -1,16 +1,19 @@
 function FlyoutMenu(props) {
     const HandleFilter = (event) => {
-        if (event.target.innerText === "All") {
-            props.setType("");
+        if (event.target.innerText === "all") {
+            props.setType(null);
         } else {
             props.setType(event.target.innerText);
         }
     };
 
+    if (!props.open) {
+        return null;
+    }
+
     return (
         <ul
             className="flyout-menu"
-            style={{ display: props.open ? "block" : "none" }}
             ref={props.reference}
         >
             <li className="flyout-menu__item" value="" onClick={HandleFilter}>
