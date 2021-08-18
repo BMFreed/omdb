@@ -6,8 +6,12 @@
     &__logo
         background-color: $secondary
         border-radius: $b_radius
+        transition: $anim
         padding: 0.3rem 0.6rem
         cursor: pointer
+
+        &:hover
+            background-color: lighten($secondary, 10%)
 
     &__title
         font:

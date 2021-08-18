@@ -4,7 +4,7 @@ const MovieList = (props) => {
             <div className="movielist__wrapper">
                 {!props.resolved ? (
                     <p className="movielist__message">Loading...</p>
-                ) : props.movies.length !== 0 ? (
+                ) : props.movies && props.movies.length !== 0 ? (
                     props.movies.map((movie, index) => (
                         <div className="movie" key={index}>
                             <div className="movie__wrapper">

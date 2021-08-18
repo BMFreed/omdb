@@ -22,8 +22,7 @@ function App() {
             const responseJson = await response.json();
             if (responseJson.Response === "True" || responseJson.Error) {
                 setResolved(true);
-            }
-            else {
+            } else {
                 setResolved(false);
             }
             if (responseJson.Search) {
@@ -31,10 +30,22 @@ function App() {
             } else {
                 setMovies([]);
             }
-            console.log(responseJson)
+            console.log(responseJson);
         };
         getMovieRequest(searchValue, type);
     }, [searchValue, type]);
+
+
+    //This effect saves the user's query in localStorage after page reload.
+    useEffect(() => {
+        const getQuery = async () => {
+            const query = localStorage.getItem("searchQuery");
+            if (query) {
+                setSearchValue(query);
+            }
+        };
+        getQuery();
+    }, []);
 
     return (
         <Router>

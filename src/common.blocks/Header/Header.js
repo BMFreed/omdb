@@ -44,6 +44,7 @@ const Header = (props) => {
     const HandleSearch = (event) => {
         event.preventDefault();
         props.setSearchValue(typedValue);
+        localStorage.setItem("searchQuery", typedValue);
     };
 
     return (
