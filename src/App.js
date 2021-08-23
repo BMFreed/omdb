@@ -30,7 +30,6 @@ function App() {
             } else {
                 setMovies([]);
             }
-            console.log(responseJson);
         };
         getMovieRequest(searchValue, type);
     }, [searchValue, type]);
