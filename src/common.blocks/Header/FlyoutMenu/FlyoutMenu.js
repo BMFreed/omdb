@@ -1,6 +1,6 @@
 function FlyoutMenu(props) {
     const HandleFilter = (event) => {
-        if (event.target.innerText === "all") {
+        if (event.target.innerText === "All") {
             props.setType(null);
         } else {
             props.setType(event.target.innerText);
