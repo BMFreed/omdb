@@ -15,15 +15,15 @@ const MovieList = (props) => {
 
     return (
         <>
-            {movie ? <MovieCard movie={movie} setMovie={setMovie}/> : null}
+            {movie ? <MovieCard movie={movie} setMovie={setMovie} /> : null}
             <section className="movielist section">
                 <div className="movielist__wrapper">
                     {!props.resolved ? (
                         <p className="movielist__message">Loading...</p>
                     ) : props.movies && props.movies.length !== 0 ? (
                         props.movies.map((movie, index) => (
-                            <div className="movie" key={index} onClick={handleMovie}>
-                                <div className="movie__wrapper">
+                            <div className="movie" key={index}>
+                                <div className="movie__wrapper" onClick={handleMovie}>
                                     <div className="movie__poster">
                                         <img
                                             className="movie__img"

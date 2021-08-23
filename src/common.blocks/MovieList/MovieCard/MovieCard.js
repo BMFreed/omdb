@@ -1,5 +1,4 @@
 function MovieCard(props) {
-    console.log(props.movie);
     const handleClose = (event) => {
         event.preventDefault();
         props.setMovie(null)
@@ -13,7 +12,7 @@ function MovieCard(props) {
                     <div className="movie-card__right-content">
                         <span><b>{props.movie.Type}</b></span>
                         <span><b>Year of release:</b> {props.movie.Year}</span>
-                        <span><b>ImDB ID:</b> {props.movie.imdbID}</span>
+                        <span style={{"textTransform": "unset"}}><b>ImDB ID:</b> {props.movie.imdbID}</span>
                         <p>Description not provided by the API.</p>
                     </div>
                 </div>
