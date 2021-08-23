@@ -8,12 +8,14 @@ import Header from "./common.blocks/Header/Header";
 import Home from "./common.blocks/Home/Home";
 import MovieList from "./common.blocks/MovieList/MovieList";
 import Footer from "./common.blocks/Footer/Footer";
+import Modal from "./common.blocks/Modal/Modal";
 
 function App() {
     const [movies, setMovies] = useState(null);
     const [searchValue, setSearchValue] = useState("");
     const [type, setType] = useState("");
     const [resolved, setResolved] = useState(false);
+    const [modal, setModal] = useState(false);
 
     useEffect(() => {
         const getMovieRequest = async (searchValue, type) => {
@@ -63,7 +65,8 @@ function App() {
                         <MovieList movies={movies} resolved={resolved} />
                     </Route>
                 </Switch>
-                <Footer />
+                <Footer setModal={setModal} />
+                {modal && <Modal modal={modal} setModal={setModal} />}
             </div>
         </Router>
     );

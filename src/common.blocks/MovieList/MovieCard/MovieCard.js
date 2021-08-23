@@ -1,8 +1,9 @@
 function MovieCard(props) {
     const handleClose = (event) => {
         event.preventDefault();
-        props.setMovie(null)
-    }
+        props.setMovie(null);
+    };
+
     return (
         <section className="movie-card">
             <div className="movie-card__content">
@@ -10,9 +11,15 @@ function MovieCard(props) {
                 <div className="movie-card__wrapper">
                     <img src={props.movie.Poster} alt={`${props.movie.Title} poster`} />
                     <div className="movie-card__right-content">
-                        <span><b>{props.movie.Type}</b></span>
-                        <span><b>Year of release:</b> {props.movie.Year}</span>
-                        <span style={{"textTransform": "unset"}}><b>ImDB ID:</b> {props.movie.imdbID}</span>
+                        <span>
+                            <b>{props.movie.Type}</b>
+                        </span>
+                        <span>
+                            <b>Year of release:</b> {props.movie.Year}
+                        </span>
+                        <span style={{ textTransform: "unset" }}>
+                            <b>ImDB ID:</b> {props.movie.imdbID}
+                        </span>
                         <p>Description not provided by the API.</p>
                     </div>
                 </div>

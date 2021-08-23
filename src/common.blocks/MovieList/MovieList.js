@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MovieCard from "./MovieCard/MovieCard";
 
 const MovieList = (props) => {
@@ -13,9 +13,22 @@ const MovieList = (props) => {
         }
     };
 
+    //This is a key press listener. It will close the movie card once the enter key is pressed.
+    useEffect(() => {
+        const keyHandler = ({ key }) => {
+            if (key === "Escape") {
+                setMovie(null);
+            }
+        };
+        window.addEventListener("keydown", keyHandler);
+        return () => {
+            window.removeEventListener("keydown", keyHandler);
+        };
+    }, []);
+
     return (
         <>
-            {movie ? <MovieCard movie={movie} setMovie={setMovie} /> : null}
+            {movie && <MovieCard movie={movie} setMovie={setMovie} />}
             <section className="movielist section">
                 <div className="movielist__wrapper">
                     {!props.resolved ? (
